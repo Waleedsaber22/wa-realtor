@@ -46,6 +46,7 @@ const Search = ({ data, purpose }) => {
             baths,
             rooms,
             rentFrequency,
+            isVerified,
           }) => {
             return (
               <Property
@@ -60,6 +61,7 @@ const Search = ({ data, purpose }) => {
                 imageName={coverPhoto?.title}
                 urlImage={coverPhoto?.url}
                 rentFrequency={`${rentFrequency ? "/" + rentFrequency : ""}`}
+                isVerified={isVerified}
               />
             );
           }
