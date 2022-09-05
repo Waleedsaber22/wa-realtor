@@ -3,39 +3,60 @@ import React, { useContext } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import Image from "next/image";
+
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
   return (
-    <Flex height={"100%"} justifyContent="center" alignItems="center">
-      <FaArrowAltCircleLeft size={25} onClick={() => scrollPrev()} />
+    <Flex
+      height={"100%"}
+      borderRight="3px solid transparent"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <FaArrowAltCircleLeft
+        fill="green"
+        opacity="0.5"
+        size={25}
+        onClick={() => scrollPrev()}
+      />
     </Flex>
   );
 };
 const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
   return (
-    <Flex height={"100%"} justifyContent="center" alignItems="center">
-      <FaArrowAltCircleRight size={25} onClick={() => scrollNext()} />
+    <Flex
+      height={"100%"}
+      borderLeft="3px solid transparent"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <FaArrowAltCircleRight
+        size={25}
+        fill="green"
+        opacity="0.5"
+        onClick={() => scrollNext()}
+      />
     </Flex>
   );
 };
 
 const ImageScollBar = ({ images }) => {
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    <ScrollMenu
+      LeftArrow={LeftArrow}
+      RightArrow={RightArrow}
+      wrapperClassName="scroll--wrapper"
+    >
       {images.map((image) => (
-        <Box
-          width={["300px", "600px", "1200px"]}
-          key={image?.id}
-          itemID={image?.id}
-        >
+        <Box className="scroll--item" key={image?.id} itemID={image?.id}>
           <Image
             placeholder="blur"
             blurDataURL={image?.url}
-            width={900}
+            className="image--scroll"
+            width={800}
             height={500}
-            sizes="(min-width:300px) 300px, (min-width:660px) 400px, 1000px"
-            quality={75}
+            sizes="(max-width:661px) 400px"
             alt={image?.id}
             src={image?.url}
           />

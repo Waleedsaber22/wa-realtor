@@ -1,0 +1,31 @@
+.scroll--wrapper {
+  width: 1000px;
+  margin: auto;
+}
+.scroll--item {
+  width: 960px;
+}
+@media (max-width: 300px) {
+  .scroll--wrapper {
+    width: 240px;
+  }
+  .scroll--item {
+    width: 190px;
+  }
+}
+@media (min-width: 301px) and (max-width: 661px) {
+  .scroll--wrapper {
+    width: 300px;
+  }
+  .scroll--item {
+    width: 260px;
+  }
+}
+@media (min-width: 661px) and (max-width: 910px) {
+  .scroll--wrapper {
+    width: 700px;
+  }
+  .scroll--item {
+    width: 640px;
+  }
+}

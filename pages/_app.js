@@ -1,9 +1,11 @@
 import "../styles/globals.css";
+import "../styles/menuScroll.css";
 import Router from "next/router";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { Footer, Navbar, Layout } from "../components";
 import Head from "next/head";
 import NProgress from "nprogress";
+
 function MyApp({ Component, pageProps }) {
   NProgress.configure({ showSpinner: false });
   Router.events.on("routeChangeStart", (e) => {
