@@ -25,21 +25,18 @@ const property = ({
 }) => {
   return (
     <Link href={`/property/${externalId}`} passHref>
-      <Box width={[270, 350, 400]} ml="10px" p="10px" cursor="pointer">
+      <Box width={[270, 350, 400]} ml="5px" cursor="pointer">
         <Flex
           flexDirection="column"
           alignItems="flex-start"
           justifyContent="space-between"
-          bg="#E2E8F0"
-          p={2}
-          borderRadius="10px"
         >
           <Image
-            style={{ borderRadius: "20px" }}
+            style={{ borderRadius: "10px" }}
             alt={imageName}
             src={urlImage || houseImage}
             width={400}
-            height={250}
+            height={280}
           />
           <Flex
             width="100%"

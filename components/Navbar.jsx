@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Router from "next/router";
+import React from "react";
 import {
   Box,
   Flex,
@@ -14,13 +13,6 @@ import { FcMenu, FcAbout, FcHome, FcKey } from "react-icons/fc";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
 const Navbar = () => {
-  const [currentPage, setCurrentPage] = useState("");
-  useEffect(() => {
-    setCurrentPage(Router.pathname);
-  }, []);
-  Router.events.on("routeChangeComplete", () => {
-    setCurrentPage(Router.pathname);
-  });
   return (
     <Box borderBottom="solid 1.3px #fff" p="20px" bg="#fff2ed">
       <Flex justifyContent="space-between" alignItems="center">
@@ -36,12 +28,7 @@ const Navbar = () => {
         </Link>
         <Menu>
           <MenuButton as={IconButton} icon={FcMenu} />
-          <MenuList
-            zIndex={2}
-            ml="-100px"
-            translate="yes"
-            left="-15px !important"
-          >
+          <MenuList zIndex={2} left="-15px !important">
             <Link href="/">
               <MenuItem icon={FcHome}>
                 <FcHome /> &nbsp; HOME

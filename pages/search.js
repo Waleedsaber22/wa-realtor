@@ -27,7 +27,7 @@ const Search = ({ data, purpose }) => {
         <BsFilter size={30} />
       </Flex>
       <Box>
-        <FilterSearch showFilter={showFilter} />
+        <FilterSearch showFilter={showFilter} handleShow={setShowFilter} />
       </Box>
       <Box>
         <Text fontWeight="bold" fontSize="1.4em" p={10}>

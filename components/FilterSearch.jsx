@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box, Flex, Select, Button } from "@chakra-ui/core";
 import { filterData } from "../utils/filterData";
 import { useRouter } from "next/router";
-const FilterSearch = ({ showFilter }) => {
+const FilterSearch = ({ showFilter, handleShow }) => {
   const router = useRouter();
   const filterElement = useRef(null);
   const [height, setHeight] = useState("unset");
@@ -29,7 +29,7 @@ const FilterSearch = ({ showFilter }) => {
     const query = router?.query;
     const pathname = router?.pathname;
     query[queryName] = queryValue;
-    if (queryValue) delete query?.[queryName];
+    if (!queryValue) delete query?.[queryName];
     router.push({ pathname, query });
   }
   return (
@@ -58,6 +58,7 @@ const FilterSearch = ({ showFilter }) => {
             w={["48%", "30%", "18%"]}
             placeholder={placeholder}
             onChange={(e) => {
+              handleChangeFilter({ queryName, queryValue: e?.target?.value });
               setFilterSearch((val) => ({
                 ...val,
                 [queryName]: e.target.value,
@@ -84,6 +85,7 @@ const FilterSearch = ({ showFilter }) => {
           mb={3}
           mt={3}
           onClick={() => {
+            handleShow((val) => !val);
             setFilterSearch({
               purpose: "",
               rentFrequency: "",

@@ -7,7 +7,7 @@ const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
   return (
     <Flex height={"100%"} justifyContent="center" alignItems="center">
-      <FaArrowAltCircleLeft size={30} onClick={() => scrollPrev()} />
+      <FaArrowAltCircleLeft size={25} onClick={() => scrollPrev()} />
     </Flex>
   );
 };
@@ -15,7 +15,7 @@ const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
   return (
     <Flex height={"100%"} justifyContent="center" alignItems="center">
-      <FaArrowAltCircleRight size={20} onClick={() => scrollNext()} />
+      <FaArrowAltCircleRight size={25} onClick={() => scrollNext()} />
     </Flex>
   );
 };
@@ -25,7 +25,7 @@ const ImageScollBar = ({ images }) => {
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {images.map((image) => (
         <Box
-          width={["300px", "600px", "1000px"]}
+          width={["300px", "600px", "1200px"]}
           key={image?.id}
           itemID={image?.id}
         >

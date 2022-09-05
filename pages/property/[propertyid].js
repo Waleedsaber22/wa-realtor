@@ -29,7 +29,12 @@ const Property = ({ data }) => {
 
   return (
     <Box>
-      <Flex justifyContent="space-around" alignItems="center" flexWrap="wrap">
+      <Flex
+        justifyContent="space-around"
+        alignItems="center"
+        flexWrap="wrap"
+        p={5}
+      >
         <Text fontSize={["14px", "lg", "2xl"]} fontWeight="black">
           {title}
         </Text>
@@ -98,10 +103,11 @@ const Property = ({ data }) => {
           <Flex flexWrap="wrap" justifyContent="space-between" bg="gray.300">
             {type && (
               <Flex
-                minWidth={"45%"}
                 justifyContent="space-between"
                 alignItems="center"
+                minWidth="fit-content"
                 bg="blue.100"
+                w={["100%", "100%", "48%"]}
                 padding={3}
               >
                 <Text fontWeight="bold">type</Text>
@@ -112,15 +118,16 @@ const Property = ({ data }) => {
             )}
             {category?.length !== 0 && category && (
               <Flex
+                minWidth="fit-content"
                 bg="blue.100"
-                minWidth={"45%"}
+                w={["100%", "100%", "48%"]}
                 justifyContent="space-between"
                 alignItems="center"
                 padding={3}
               >
                 <Text fontWeight="bold">category</Text>
                 {category?.map(({ name, id }) => (
-                  <Text key={id} color="blue.300" fontWeight="black">
+                  <Text ml={2} key={id} color="blue.300" fontWeight="black">
                     {name}
                   </Text>
                 ))}
@@ -128,14 +135,15 @@ const Property = ({ data }) => {
             )}
             {product && (
               <Flex
+                minWidth="fit-content"
                 bg="blue.100"
-                minWidth={"45%"}
+                w={["100%", "100%", "48%"]}
                 justifyContent="space-between"
                 alignItems="center"
                 padding={3}
               >
-                <Text>product</Text>
-                <Text color="blue.300" fontWeight="black">
+                <Text fontWeight="bold">product</Text>
+                <Text color="blue.300" ml={2} fontWeight="black">
                   {product}
                 </Text>
               </Flex>
